@@ -1,16 +1,29 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./sections/navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+ const calibri = localFont({
+  src: "./fonts/calibri-regular.ttf",
+  variable: "--font-calibri",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+
+export const calibri_bold = localFont({
+  src: "./fonts/calibri-bold.ttf",
+  variable: "--font-calibri-bold",
 });
+
+export const calibri_bold_italic = localFont({
+  src: "./fonts/calibri-bold-italic.ttf",
+  variable: "--font-calibri-bold-italic",
+});
+
+export const venus = localFont({
+  src: "./fonts/venusrisingrg-bold-italic.ttf",
+  variable: "--font-venus",
+});
+
+
 
 export const metadata = {
   title: "Create Next App",
@@ -19,9 +32,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="pt-br" >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${calibri.className} `}
       >
         <Navbar/>
         {children}

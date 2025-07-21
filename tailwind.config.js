@@ -27,7 +27,13 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       // Configurações adicionais do shadcn, se necessário
+
+      fontFamily: {
+        calibri: ["var(--font-calibri)"],
+        venus: ["var(--font-venus)"],
+      },
     },
   },
   plugins: [],
 };
+

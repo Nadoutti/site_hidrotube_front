@@ -43,6 +43,21 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+/**/
+/* @font face { */
+/*   font-family: 'Calibri'; */
+/*   src: url('/Fonts/calibri.ttf') format('truetype'); */
+/*   font-weight: 400; */
+/*   font-style: normal; */
+/* } */
+/**/
+/* @font face { */
+/*   font-family: 'Venom'; */
+/*   src: url('/Fonts/venusrisingrg-bold-italic.ttf') format('truetype'); */
+/*   font-weight: 700; */
+/*   font-style: normal; */
+/* } */
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -120,4 +135,8 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }

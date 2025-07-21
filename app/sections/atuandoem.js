@@ -1,23 +1,23 @@
-'use client';
 import React from 'react';
+import { calibri_bold } from "../layout.js"
+import {venus} from "../layout.js"
 import Image from 'next/image';
 
 
 export default function AtuandoEm() {
   return (
     <div className="
-      min-h-screen
       lg:py-20
-      py-15
-      px-4
+      py-10
+      px-10
       bg-linear-360 from-[#142667] to-[#284CCD]">
       {/* Div para o titulo */}
       <div className="
         ">
-        <h1 className="
-          text-[38px]
-          font-bold
-          text-[#FFFFFF]">Atuando em:</h1>
+        <h1 className={ `
+          text-2xl
+          text-transparent bg-clip-text bg-linear-90 from-[#F44C51]  to-[#B73034]
+          ${venus.className}`}>Atuando em:</h1>
       </div>
       {/* Conteudo */}
       <div className="
@@ -25,17 +25,58 @@ export default function AtuandoEm() {
         my-10
         sm:my-20">
         {/* Areas de atuação */}
-        <div className="
+        <div className={`
           w-2/3
-          bg-red-500">
-          <div>
-            <Image/>
-        <p>alimenticios</p>
-          </div>
-          <p>agua</p>
-          <p>gases</p>
-          <p>ar comprimido</p>
-          <p>vapor</p>
+          text-[#FFFFFF]
+          text-center
+          ${calibri_bold.className}
+          text-[24px]
+          border-r-12
+          border-[#A0ACC4]
+          `}>
+
+          <ul className="
+            flex
+            justify-around">
+            
+            <li className="flex flex-col items-center">
+            <Image  src="/milk.svg"
+              width={120}
+              height={120}
+              alt="milk" className="
+                text-white"/>
+            <p >Alimenticios</p>
+            </li>
+            
+            <li>
+            <Image src="/agua.svg" width={120} height={120} alt="water"/>
+            <p>Agua</p>
+            </li>
+            
+            <li className="flex flex-col items-center">
+            <Image className="" src="/compressed.svg" width={120} height={120} alt="compressed"/>
+            <p className="">Ar Comprimido</p>
+            </li>
+          </ul>
+          
+
+          <ul
+            className="
+            flex
+            justify-around
+            mx-30
+            my-10">
+            <li>
+            <Image src="/gas.svg" width={120} height={120} alt="gas"/>
+            <p>Gases</p>
+            </li>
+
+            <li>
+            <Image src="/vapor.svg" width={120} height={120} alt="vapor"/>
+            <p>Vapor</p>
+            </li>
+          </ul>
+
         </div>
         {/* Conheca nosso time */}
         <div className="
@@ -47,15 +88,15 @@ export default function AtuandoEm() {
           items-end
           justify-center
           ">
-          <p className="
+          <p className={`
             text-[24px]
-            font-semibold
+            ${calibri_bold.className}
             text-[#FFFFFF]
             w-fit
             text-wrap
             p-2
             text-right
-            "> 
+            `}> 
             Converse com o time HT sempre trazendo confiabilidade, seguranca e personalizacao
             para as suas necessidades, nos consulte e resolvemos as demandas
             relevantes para o contexto da sua empresa</p>
