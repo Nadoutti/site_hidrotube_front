@@ -5,12 +5,12 @@ import Image from 'next/image';
 export default function Sobre() {
   return (
     <div className="
-      bg-linear-360 from-[#142667] to-[#284CCD]
+      bg-linear-180 from-[#142667] to-[#193084]
       px-10
       py-20">
 
       <div>
-        <h1 className={`text-2xl text-left text-transparent bg-clip-text bg-linear-90 from-[#F44C51]  to-[#B73034] text-[#FFFFFF] ${venus.className}`}>
+        <h1 className={`text-3xl text-left text-transparent bg-clip-text bg-linear-90 from-[#F44C51]  to-[#B73034] text-[#FFFFFF] ${venus.className}`}>
           SOBRE NÓS
         </h1>
       </div>

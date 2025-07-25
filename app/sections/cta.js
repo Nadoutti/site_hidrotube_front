@@ -9,7 +9,7 @@ export default function Cta() {
       justify-around
       gap-40
       items-center
-      bg-[#142667] 
+      bg-[#193084] 
       text-[#FFFFFF]
       text-[24px]
       font-bold">
@@ -21,16 +21,15 @@ export default function Cta() {
 
       </div>
 
-      <div className="
-        w-1/3
-        
-        ">
-        <a className="
+        <a href="/" className="
+          mr-30
           bg-linear-90 from-[#B73034] to-[#F44C51]
           py-5
           px-10
+          hover:-translate-y-1
+          duration-200
+          ease-in-out
           rounded-lg italic font-bold">CLIQUE AQUI</a>
-      </div>
     </div>
   )
 }

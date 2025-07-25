@@ -20,11 +20,11 @@ export default function Produtos() {
       ">
       <div className="
         flex
-        pt-20
+        pt-15
         pb-10
         items-center
         justify-between">
-        <h1 className={`text-2xl   text-[#142667]  ml-10 ${venus.className}` }>Conheça Nossas linhas</h1>
+        <h1 className={`text-3xl   text-[#142667]  ml-10 ${venus.className}` }>Conheça Nossas linhas</h1>
         <a href="#" className="
           mr-10
           bg-linear-0 from-[#2D6BBD] to-[#3F79C7] 
@@ -52,20 +52,21 @@ export default function Produtos() {
             <div className="">
               <Card className="
                 w-80
-                h-120
+                h-100
                 hover:shadow-black hover:shadow-xl/20 hover:-translate-y-1
                 duration-300
                 ease-in-out
-                bg-linear-180 from-[#142667] to-[#284CCD]">
+                bg-linear-180 from-[#142667] to-[#193084]">
                 <CardHeader>
                   <CardTitle className="text-center pt-10  text-2xl text-[#FFFFFF]">Tubos</CardTitle>
                 </CardHeader>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
                   <Image
+                    className="rounded-md mb-10"
                     alt="Hidrotube"
-                    src="/hidrotube.png"
-                    width={100}
-                    height={100}/>
+                    src="/tubo.png"
+                    width={200}
+                    height={200}/>
                 </CardContent>
               </Card>
             </div>
@@ -75,21 +76,23 @@ export default function Produtos() {
             <div className="p-1">
               <Card className="
                 w-80
-                h-120
+                h-100
                 hover:shadow-black hover:shadow-xl/20 hover:-translate-y-1
                 duration-300
                 ease-in-out
-                bg-linear-180 from-[#142667] to-[#284CCD]">
+                bg-linear-180 from-[#142667] to-[#193084]">
 
                 <CardHeader>
                   <CardTitle className="text-center pt-10 text-2xl text-[#FFFFFF]">Valvulas</CardTitle>
                 </CardHeader>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
                   <Image
+
+                    className="rounded-md mb-10"
                     alt="Hidrotube"
-                    src="/hidrotube.png"
-                    width={100}
-                    height={100}/>
+                    src="/haste.png"
+                    width={200}
+                    height={200}/>
                 </CardContent>
               </Card>
             </div>
@@ -99,20 +102,46 @@ export default function Produtos() {
             <div className="p-1">
               <Card className="
                 w-80
-                h-120
+               h-100 
                 hover:shadow-black hover:shadow-xl/20 hover:-translate-y-1
                 duration-300
                 ease-in-out
-                bg-linear-180 from-[#142667] to-[#284CCD]">
+                bg-linear-180 from-[#142667] to-[#193084]">
                 <CardHeader>
                   <CardTitle className="text-center pt-10 text-2xl text-[#FFFFFF]">Conexões</CardTitle>
                 </CardHeader>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
                   <Image
+                    className="rounded-md mb-10"
                     alt="Hidrotube"
-                    src="/hidrotube.png"
-                    width={100}
-                    height={100}/>
+                    src="/conexao.png"
+                    width={200}
+                    height={200}/>
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+
+          <CarouselItem className="
+            basis-1/5" >
+            <div className="p-1">
+              <Card className="
+                w-80
+                hover:shadow-black hover:shadow-xl/20 hover:-translate-y-1
+                duration-300
+                ease-in-out
+                h-100
+                bg-linear-180 from-[#142667] to-[#193084]">
+                <CardHeader>
+                  <CardTitle className="text-center pt-10 text-2xl text-[#FFFFFF]">Flanges</CardTitle>
+                </CardHeader>
+                <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <Image
+                    className="rounded-md mb-10"
+                    alt="Hidrotube"
+                    src="/flange.png"
+                    width={200}
+                    height={200}/>
                 </CardContent>
               </Card>
             </div>
@@ -125,21 +154,23 @@ export default function Produtos() {
                 hover:shadow-black hover:shadow-xl/20 hover:-translate-y-1
                 duration-300
                 ease-in-out
-                h-120
-                bg-linear-180 from-[#142667] to-[#284CCD]">
+                h-100
+                bg-linear-180 from-[#142667] to-[#193084]">
                 <CardHeader>
                   <CardTitle className="text-center pt-10 text-2xl text-[#FFFFFF]">Acessorios</CardTitle>
                 </CardHeader>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
                   <Image
+                    className="rounded-md mb-10"
                     alt="Hidrotube"
-                    src="/hidrotube.png"
-                    width={100}
-                    height={100}/>
+                    src="/chave.png"
+                    width={200}
+                    height={200}/>
                 </CardContent>
               </Card>
             </div>
           </CarouselItem>
+
 
         </CarouselContent>
         <CarouselPrevious className="left-12" />

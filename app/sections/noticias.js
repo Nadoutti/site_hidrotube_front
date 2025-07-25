@@ -26,7 +26,7 @@ export default function Noticias() {
         py-20
         items-center
         justify-between">
-        <h1 className={`text-2xl   text-[#142667]  ml-10 ${venus.className}` }>Utimas Noticias</h1>
+        <h1 className={`text-3xl   text-[#142667]  ml-10 ${venus.className}` }>Utimas Noticias</h1>
         <a href="#" className="
           mr-10
           bg-linear-0 from-[#2D6BBD] to-[#3F79C7] 
@@ -41,7 +41,7 @@ export default function Noticias() {
           ">VER TUDO</a>
       </div>
       <Carousel className="
-        ml-10
+        ml-0
         pb-10
         
         "

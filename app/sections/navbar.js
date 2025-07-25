@@ -7,6 +7,7 @@ export default function Navbar() {
       fixed
       w-full
       z-50
+      
       bg-linear-65 from-[#F5FBFF] to-[#DEEBFF] 
       border-gray-200 
       text-[#142667]
@@ -28,7 +29,7 @@ export default function Navbar() {
           w-1/2
           justify-between
           gap-10
-          text-lg">
+          text-[20px]">
 
           <li>
             <a href="#">

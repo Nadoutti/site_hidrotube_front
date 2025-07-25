@@ -25,12 +25,13 @@ export default function Slideshow() {
     <div className="
       flex
       items-center
-      h-screen
+      h-210
       w-full
+      
       justify-center">
       <Carousel className="
         w-full
-        h-screen"opts={{
+        h-210"opts={{
           loop: true,
           stopOnMouseEnter: true,
         }}
@@ -51,7 +52,7 @@ export default function Slideshow() {
                   alt={`Slide ${index + 1}`}
                   width={800}
                   height={600}
-                  className="object-cover w-full h-full"
+                  className="w-full h-210"
                 >
                   
                 </Image>

@@ -10,7 +10,7 @@ export default function Porque() {
       bg-linear-360 from-[#F5FBFF] to-[#DEEBFF]">
 
       <div className="
-        text-2xl
+        text-3xl
         ">
         <h1 className={`
           text-center text-[#142667] ${venus.className}`}>PORQUE SOMOS A MELHOR </h1>
@@ -40,7 +40,7 @@ export default function Porque() {
           items-center
           justify-between
           pb-30
-          bg-linear-360 from-[#142667] to-[#284CCD]">
+          bg-linear-0 from-[#142667] to-[#193084]">
           <p className="
             px-6
             py-15">Estoque sempre pronto para suas necessidades</p>
@@ -58,7 +58,7 @@ export default function Porque() {
           justify-between
           pb-30
           h-120
-          bg-linear-360 from-[#142667] to-[#284CCD]">
+          bg-linear-0 from-[#142667] to-[#193084]">
           <p className="
             px-6
             py-15">Atendimento rápido e personalizado</p>
@@ -79,7 +79,7 @@ export default function Porque() {
           pb-30
           pb-30
           h-120
-          bg-linear-360 from-[#142667] to-[#284CCD]">
+          bg-linear-0 from-[#142667] to-[#193084]">
           <p className="
             px-6
             py-15">Produtos de ótima qualidade</p>

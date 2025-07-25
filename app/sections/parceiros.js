@@ -14,7 +14,7 @@ export default function Parceiros() {
         ">
 
         <h1 className={`
-          text-2xl
+          text-3xl
           text-transparent text-center mb-30 bg-clip-text bg-linear-90 from-[#F44C51]  to-[#B73034]
           font-bold ${venus.className}`}>Nossos Parceiros</h1>
       </div>

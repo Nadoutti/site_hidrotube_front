@@ -10,12 +10,12 @@ export default function AtuandoEm() {
       lg:py-20
       py-10
       px-10
-      bg-linear-360 from-[#142667] to-[#284CCD]">
+      bg-linear-180 from-[#142667] to-[#193084]">
       {/* Div para o titulo */}
       <div className="
         ">
         <h1 className={ `
-          text-2xl
+          text-3xl
           text-transparent bg-clip-text bg-linear-90 from-[#F44C51]  to-[#B73034]
           ${venus.className}`}>Atuando em:</h1>
       </div>
@@ -101,10 +101,10 @@ export default function AtuandoEm() {
             para as suas necessidades, nos consulte e resolvemos as demandas
             relevantes para o contexto da sua empresa</p>
           <a className="
-            py-3
+            py-4
             my-10
-            px-10
-            text-[18px]
+            px-15
+            text-[22px]
             bg-transparent
             border
             font-bold
