@@ -1,6 +1,5 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Navbar from "./sections/navbar";
 
  const calibri = localFont({
   src: "./fonts/calibri-regular.ttf",
@@ -36,7 +35,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${calibri.className} `}
       >
-        <Navbar/>
         {children}
       </body>
     </html>

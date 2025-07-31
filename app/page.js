@@ -1,4 +1,5 @@
 import Slideshow from "./sections/slideshow.js"
+import Navbar from "./sections/navbar.js"
 import Parceiros from "./sections/parceiros.js"
 import Footer from "./sections/footer.js"
 import Produtos from "./sections/produtos.js"
@@ -21,6 +22,7 @@ import {
 export default function LandingPage() {
   return (
     <>
+      <Navbar></Navbar>
  
       {/* Slideshow */}
       <Slideshow/>
