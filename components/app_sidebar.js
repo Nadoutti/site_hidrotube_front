@@ -74,7 +74,7 @@ const data = {
 export default function AppSidebar() {
   return (
 
-    <Sidebar className="transition-[width,padding] duration-200 ease-in-out" collapsible="icon">
+    <Sidebar className="transition-[width,padding] duration-200 ease-in-out " collapsible="icon">
 
       {/* Header da sidebar */}
       <SidebarHeader>
