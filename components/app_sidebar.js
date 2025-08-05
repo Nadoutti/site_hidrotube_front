@@ -12,29 +12,6 @@ import {
   SidebarHeader,
 } from "@/components/ui/sidebar"
 
-const items = [
-  {
-    title: "Home",
-    url: "#",
-    icon: Home,
-  },
-  {
-    title: "Slide Show",
-    url: "#",
-    icon: Images,
-  },
-  {
-    title: "Produtos",
-    url: "#",
-    icon: PackageSearch,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Newspaper,
-  },
-]
-
 const data = {
   user: {
     name: "Nadottins",
@@ -44,12 +21,12 @@ const data = {
   items: [
     {
       title: "Home",
-      url: "#",
+      url: "/admin",
       icon: Home,
     },
     {
       title: "Slide Show",
-      url: "#",
+      url: "/admin/slideshow",
       icon: Images,
     },
     {
@@ -58,8 +35,8 @@ const data = {
       icon: PackageSearch,
     },
     {
-      title: "Search",
-      url: "#",
+      title: "Noticias",
+      url: "/admin/noticias",
       icon: Newspaper,
     },
   ],

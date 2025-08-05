@@ -1,4 +1,3 @@
-
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import localFont from "next/font/local";
 import AppSidebar from "@/components/app_sidebar.js"
@@ -11,8 +10,7 @@ import AppSidebar from "@/components/app_sidebar.js"
 
 export default function AdminLayout({ children }) {
   return (
-    <html lang="pt-br" >
-      <body
+      <div
         className={`${calibri.className}
           bg-[#ffffff]`}
       >
@@ -23,8 +21,7 @@ export default function AdminLayout({ children }) {
             {children}
           </main>
         </SidebarProvider>
-      </body>
-    </html>
+      </div>
   );
 }
 
