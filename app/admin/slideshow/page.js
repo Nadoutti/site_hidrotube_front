@@ -1,6 +1,5 @@
 "use client"
-import UsedImages from "@/components/used_imgs.js";
-import OtherImages from "@/components/other_imgs.js";
+import OtherImages from "@/components/slide_images.js";
 
 export default function admin_slide() {
 
@@ -13,7 +12,6 @@ export default function admin_slide() {
           text-[56px]
           font-bold
           ">Edite seus Slides.</h1>
-        <UsedImages/>
       <OtherImages/>
 
 
