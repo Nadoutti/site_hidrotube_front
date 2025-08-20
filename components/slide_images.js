@@ -49,19 +49,12 @@ export default function OtherImages() {
       
     })
 
-
-    
-    
   }, []);
 
   const handleFileChange = (e) => {
     setFileData(e.target.files[0])
   };
 
-  const handleImageClick = (id) => {
-    setImgId(id);
-    console.log(imgId)
-  }
 
   const handleSubmit = async (e) => {
     
@@ -73,25 +66,20 @@ export default function OtherImages() {
     try {
       const response = await api.post('/slides', formData)
 
-      window.location.reload();
     } catch (error) {
-      window.location.reload();
       console.log("Nao tem imagem ainda")
 
     }
 
   };
 
-  const handleEditSubmit = async (e) => {
-    
-    e.preventDefault();
-    console.log("asdjfhg")
+  const toggleImage = async (id) => {
 
     try {
 
 
 
-      const response = await api.put('/slides/selecionar', imgId)
+      const response = await api.put(`/slides/${id}/selecionar`, id)
 
       setImgId("")
 
@@ -99,7 +87,8 @@ export default function OtherImages() {
 
 
     } catch (error) {
-      window.location.reload();
+      console.log(imgId.type)
+      console.log(imgId)
       console.error(error)
 
     }
@@ -130,9 +119,7 @@ export default function OtherImages() {
             flex-wrap">
             {images.map((image) => (
               <li key={`${image.id}`}>
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <button onClick={() => handleImageClick(image.id)} className="
+                    <button onClick={() => toggleImage(image.id)} className="
                       rounded-lg
                       hover:-translate-y-2 duration-200 ease-in-out hover:shadow-black hover:shadow-xl/20">
 
@@ -152,40 +139,6 @@ export default function OtherImages() {
                       }
 
                     </button>
-
-                  </DialogTrigger>
-
-                  <DialogContent className="
-                    bg-white">
-                    <DialogTitle className="text-center">Editar imagem</DialogTitle>
-                    <DialogDescription className="text-center">Edite se a imagem vai aparecer no slideshow, se vai ser deletada, ou não</DialogDescription>
-
-                    <form onSubmit={handleEditSubmit} >
-                      <div className="
-                        w-full
-                        mt-5
-                        flex
-                        justify-center">
-
-                        
-
-                      </div>
-
-                      <div className="
-                        w-full
-                        flex
-                        justify-center
-                        mt-8">
-                        <Button className="w-9/11 text-lg">Usar imagem</Button>
-
-                      </div>
-
-                    </form>
-
-                  </DialogContent>
-
-                </Dialog>
-
 
 
               </li>

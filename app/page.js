@@ -22,7 +22,8 @@ import {
 export default function LandingPage() {
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar className="
+      "></Navbar>
  
       {/* Slideshow */}
       <Slideshow/>

@@ -1,4 +1,5 @@
 import { Card, CardContent, CardTitle, CardHeader } from "@/components/ui/card"
+import Link from "next/link"
 import Autoplay from "embla-carousel-autoplay"
 import {calibri_bold} from "../layout.js"
 import {venus} from "../layout.js"
@@ -17,8 +18,34 @@ import {
 
 
 export default function Noticias() {
+
+  const noticias = [{
+    "id": 1,
+    "title": "titulo",
+    "desc": "minha descricao",
+    "date": "12-10-2022"
+  },
+{
+    "id": 2,
+    "title": "titulo dois",
+    "desc": "minha descricao",
+    "date": "12-10-2022"
+  },
+{
+    "id": 3,
+    "title": "titulo askjf",
+    "desc": "minha descricao",
+    "date": "12-10-2022"
+  },
+{
+    "id": 4,
+    "title": "titulo asldj",
+    "desc": "minha descricao",
+    "date": "12-10-2022"
+  },
+  ]
   return(
-<div className="
+    <div className="
       bg-linear-0 from-[#F5FBFF] to-[#DEEBFF] 
       ">
       <div className="
@@ -43,94 +70,36 @@ export default function Noticias() {
       <Carousel className="
         ml-0
         pb-10
-        
+
         "
         opts={{
           loop: true,
         }}>
         <CarouselContent className={`${calibri_bold.className} -mr-15 h-90 ml-5 mt-5 `}>
-          <CarouselItem className="
-            basis-1/5
-            " >
-            <div className="">
-              <Card className="relative w-80 h-60 overflow-hidden hover:shadow-black hover:shadow-xl/20 hover:-translate-y-1 duration-300 ease-in-out">
-                {/* Imagem de fundo com filtro de brightness */}
-                <div className="absolute inset-0 bg-[url(/hidrotube.png)] bg-cover bg-center brightness-55 z-0"></div>
+          {noticias.map((noticia) => (
+            <Link key={noticia.id} href={`/noticias/${noticia.id}`}>
+              <CarouselItem className="
+                basis-1/5
+                " >
+                <div className="">
+                  <Card className="relative w-80 h-60 overflow-hidden hover:shadow-black hover:shadow-xl/20 hover:-translate-y-1 duration-300 ease-in-out">
+                    {/* Imagem de fundo com filtro de brightness */}
+                    <div className="absolute inset-0 bg-[url(/hidrotube.png)] bg-cover bg-center brightness-55 z-0"></div>
 
-                {/* Conteúdo acima da imagem */}
-                <div className="relative z-10">
-                  <CardHeader>
-                    <CardTitle className="text-center pt-10 text-2xl text-white font-bold">Noticia 1</CardTitle>
-                  </CardHeader>
+                    {/* Conteúdo acima da imagem */}
+                    <div className="relative z-10">
+                      <CardHeader>
+                        <CardTitle className="text-center pt-10 text-2xl text-white font-bold">{ noticia.title }</CardTitle>
+                      </CardHeader>
+                    </div>
+                  </Card>
                 </div>
-              </Card>
-            </div>
-          </CarouselItem>
-          <CarouselItem className="
-            basis-1/5" >
-            <div className="">
-              <Card className="relative w-80 h-60 overflow-hidden hover:shadow-black hover:shadow-xl/20 hover:-translate-y-1 duration-300 ease-in-out">
-                {/* Imagem de fundo com filtro de brightness */}
-                <div className="absolute inset-0 bg-[url(/hidrotube.png)] bg-cover bg-center brightness-55 z-0"></div>
+              </CarouselItem>
+            </Link>
 
-                {/* Conteúdo acima da imagem */}
-                <div className="relative z-10">
-                  <CardHeader>
-                    <CardTitle className="text-center pt-10 text-2xl text-white font-bold">Noticia 2</CardTitle>
-                  </CardHeader>
-                </div>
-              </Card>
-            </div>
 
-          </CarouselItem>
-          <CarouselItem className="
-            basis-1/5" >
-            <div className="">
-              <Card className="relative w-80 h-60 overflow-hidden hover:shadow-black hover:shadow-xl/20 hover:-translate-y-1 duration-300 ease-in-out">
-                {/* Imagem de fundo com filtro de brightness */}
-                <div className="absolute inset-0 bg-[url(/hidrotube.png)] bg-cover bg-center brightness-55 z-0"></div>
 
-                {/* Conteúdo acima da imagem */}
-                <div className="relative z-10">
-                  <CardHeader>
-                    <CardTitle className="text-center pt-10 text-2xl text-white font-bold">Noticia 3</CardTitle>
-                  </CardHeader>
-                </div>
-              </Card>
-            </div>
-          </CarouselItem>
-          <CarouselItem className="
-            basis-1/5" >
-            <div className="">
-              <Card className="relative w-80 h-60 overflow-hidden hover:shadow-black hover:shadow-xl/20 hover:-translate-y-1 duration-300 ease-in-out">
-                {/* Imagem de fundo com filtro de brightness */}
-                <div className="absolute inset-0 bg-[url(/hidrotube.png)] bg-cover bg-center brightness-55 z-0"></div>
-
-                {/* Conteúdo acima da imagem */}
-                <div className="relative z-10">
-                  <CardHeader>
-                    <CardTitle className="text-center pt-10 text-2xl text-white font-bold">Noticia 4</CardTitle>
-                  </CardHeader>
-                </div>
-              </Card>
-            </div>
-          </CarouselItem>
-          <CarouselItem className="
-            basis-1/5" >
-            <div className="">
-              <Card className="relative w-80 h-60 overflow-hidden hover:shadow-black hover:shadow-xl/20 hover:-translate-y-1 duration-300 ease-in-out">
-                {/* Imagem de fundo com filtro de brightness */}
-                <div className="absolute inset-0 bg-[url(/hidrotube.png)] bg-cover bg-center brightness-55 z-0"></div>
-
-                {/* Conteúdo acima da imagem */}
-                <div className="relative z-10">
-                  <CardHeader>
-                    <CardTitle className="text-center pt-10 text-2xl text-white font-bold">Noticia 5</CardTitle>
-                  </CardHeader>
-                </div>
-              </Card>
-            </div>
-          </CarouselItem>
+          ))}
         </CarouselContent>
         <CarouselPrevious className="left-12" />
         <CarouselNext className="right-12" />
