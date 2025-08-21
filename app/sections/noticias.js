@@ -1,3 +1,5 @@
+"use client"
+
 import { Card, CardContent, CardTitle, CardHeader } from "@/components/ui/card"
 import Link from "next/link"
 import Autoplay from "embla-carousel-autoplay"
@@ -12,6 +14,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import { useEffect, useState } from "react"
 
 
 
@@ -19,31 +22,35 @@ import {
 
 export default function Noticias() {
 
-  const noticias = [{
-    "id": 1,
-    "title": "titulo",
-    "desc": "minha descricao",
-    "date": "12-10-2022"
-  },
-{
-    "id": 2,
-    "title": "titulo dois",
-    "desc": "minha descricao",
-    "date": "12-10-2022"
-  },
-{
-    "id": 3,
-    "title": "titulo askjf",
-    "desc": "minha descricao",
-    "date": "12-10-2022"
-  },
-{
-    "id": 4,
-    "title": "titulo asldj",
-    "desc": "minha descricao",
-    "date": "12-10-2022"
-  },
-  ]
+    const [noticias, setNoticias] = useState([]);
+
+  useEffect(() => {
+    const fetchNoticias = async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/noticias`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch news');
+        }
+        const data = await response.json();
+        console.log(data);
+        // Extract the items array from the response
+        setNoticias(data.items || []);
+      } catch (error) {
+        console.error('Error fetching news:', error);
+        // Fallback data in case of error
+        setNoticias([
+          {
+            "id": "fallback-id",
+            "title": "Erro ao carregar notícias",
+            "description": "Por favor, tente novamente mais tarde",
+            "cover_url": "/hidrotube.png" // Fallback image
+          }
+        ]);
+      }
+    };
+
+    fetchNoticias();
+  }, []);
   return(
     <div className="
       bg-linear-0 from-[#F5FBFF] to-[#DEEBFF] 
@@ -84,7 +91,14 @@ export default function Noticias() {
                 <div className="">
                   <Card className="relative w-80 h-60 overflow-hidden hover:shadow-black hover:shadow-xl/20 hover:-translate-y-1 duration-300 ease-in-out">
                     {/* Imagem de fundo com filtro de brightness */}
-                    <div className="absolute inset-0 bg-[url(/hidrotube.png)] bg-cover bg-center brightness-55 z-0"></div>
+                    <div className="absolute inset-0 z-0">
+                      <Image 
+                        src={noticia.cover_url || '/hidrotube.png'} 
+                        alt={noticia.title} 
+                        fill 
+                        className="object-cover brightness-55"
+                      />
+                    </div>
 
                     {/* Conteúdo acima da imagem */}
                     <div className="relative z-10">
