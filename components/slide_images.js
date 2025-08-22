@@ -56,7 +56,7 @@ export default function OtherImages() {
   };
 
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     
     e.preventDefault();
 
@@ -64,7 +64,7 @@ export default function OtherImages() {
     formData.append('file', fileData)
 
     try {
-      const response = await api.post('/slides', formData)
+      const response = api.post('/slides', formData)
 
     } catch (error) {
       console.log("Nao tem imagem ainda")
@@ -73,13 +73,13 @@ export default function OtherImages() {
 
   };
 
-  const toggleImage = async (id) => {
+  const toggleImage = (id) => {
 
     try {
 
 
 
-      const response = await api.put(`/slides/${id}/selecionar`, id)
+      const response = api.put(`/slides/${id}/selecionar`, id)
 
       setImgId("")
 

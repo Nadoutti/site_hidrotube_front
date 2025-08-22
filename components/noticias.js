@@ -1,5 +1,6 @@
 "use client"
 import { Label } from "@/components/ui/label"
+import api from "@/utils/api.js"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
@@ -10,7 +11,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 
 import {
@@ -27,22 +28,66 @@ import {
 export default function Noticias() {
 
   const [noticia, setNoticia] = useState(null);
-  
+  const [file, setFile] = useState(null);
+  const [form, setForm] = useState(
+    {
+    title: "",
+    text: "",
+    }
+  )
+
+
+  useEffect(() => {
+    api.get("/noticias").then((response) => {
+      setNoticia(response.data)
+      console.log(response.data)
+
+    })
+
+  }, []);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.val})
+  }
+
+
+  const handleSubmit = (e) => {
+
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('title', form.title) // ここ、デタを送信する
+    formData.append('text', form.text)
+    formData.append('file', file)
+
+    try {
+      const response = api.post('/noticias', formData)
+
+    } catch (error) {
+      console.log("これが悪い")
+
+    }
+
+  };
+
+
+
+
   const noticias = [
     {
-    "id": 0,
-    "titulo": "noticia teste",
-    "texto": "texto da noticia"
+      "id": 0,
+      "titulo": "noticia teste",
+      "texto": "texto da noticia"
     },
     {
-    "id": 1,
-    "titulo": "noticia teste 2",
-    "texto": "texto da noticia 2"
+      "id": 1,
+      "titulo": "noticia teste 2",
+      "texto": "texto da noticia 2"
     },
   ]
 
   return (
-    
+
     <Card className="my-15 max-w-350 min-w-200">
       <CardHeader>
         <CardTitle className="text-xl">Todas as noticias</CardTitle>
@@ -71,7 +116,7 @@ export default function Noticias() {
                 </DialogTrigger>
 
                 <DialogContent className="bg-white">
-                  
+
                   <DialogHeader>
 
                     <DialogTitle className="
@@ -90,22 +135,22 @@ export default function Noticias() {
                       <Label htmlFor="title" className="
                         text-2xl
                         my-5">Titulo</Label>
-                      <Input id="title" type="text" defaultValue={item.titulo} className="
-                        min-h-20
+                      <Input id="title" name="title" type="text" defaultValue={item.titulo} className="
+                        min-h-15
                         max-h-50 !text-lg"/>
 
                       <Label htmlFor="text" className="
                         text-2xl
                         my-5">Texto</Label>
-                      <Input id="text" type="text" defaultValue={item.texto} className="
-                        min-h-20
+                      <Input id="text" name="text" type="text" defaultValue={item.texto} className="
+                        min-h-15
                         max-h-50 !text-lg"/>
 
                       <Label htmlFor="image" className="
                         text-2xl
                         my-5">Imagem</Label>
-                      <Input id="image" type="file" className="
-                        min-h-20
+                      <Input id="image" name="image" type="file" className="
+                        min-h-15
                         max-h-50 !text-lg"/>
 
                       <div className="
@@ -123,12 +168,12 @@ export default function Noticias() {
                 </DialogContent>
               </Dialog>
             </li>
-            
+
           ))}
           <li>
             <Dialog>
               <DialogTrigger asChild>
-                
+
                 <Button variant="outline" className=" w-63 h-40 text-[18px] text-center">Adicionar Noticia</Button>
 
 
@@ -142,26 +187,26 @@ export default function Noticias() {
                   Escreva nos campos e salve para adicionar a noticia
                 </DialogDescription>
                 <div>
-                  <form>
+                  <form onSubmit={handleSubmit}>
                     <Label htmlFor="title" className="
                       text-2xl
                       my-5">Titulo</Label>
-                    <Input id="title" type="text"  className="
-                      min-h-20
+                    <Input id="title" name="title" type="text"  className="
+                      min-h-15
                       max-h-50 !text-lg"/>
 
                     <Label htmlFor="text" className="
                       text-2xl
                       my-5">Texto</Label>
-                    <Input id="text" type="text" className="
-                      min-h-20
+                    <Input id="text" name="text" type="text" className="
+                      min-h-15
                       max-h-50 !text-lg"/>
 
                     <Label htmlFor="image" className="
                       text-2xl
                       my-5">Imagem</Label>
-                    <Input id="image" type="file" className="
-                      min-h-20
+                    <Input id="image" onChange={(e) => setFile(e.target.files[0])} name="image" type="file" className="
+                      min-h-15
                       max-h-50 !text-lg"/>
 
                     <div className="
