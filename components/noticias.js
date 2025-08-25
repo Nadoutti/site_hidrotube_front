@@ -27,7 +27,7 @@ import {
 
 export default function Noticias() {
 
-  const [noticia, setNoticia] = useState(null);
+  const [noticias, setNoticias] = useState([]);
   const [file, setFile] = useState(null);
   const [form, setForm] = useState(
     {
@@ -61,7 +61,26 @@ export default function Noticias() {
     formData.append('file', file)
 
     try {
-      const response = api.post('/noticias', formData)
+      const response = api.post('/noticias/upload', formData)
+
+    } catch (error) {
+      console.log("これが悪い")
+
+    }
+
+  };
+
+  const handleEditSubmit = (e, id) => {
+
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('title', form.title) // ここ、デタを送信する
+    formData.append('text', form.text)
+    formData.append('file', file)
+
+    try {
+      const response = api.post(`/noticias/${id}`, formData)
 
     } catch (error) {
       console.log("これが悪い")
@@ -71,20 +90,24 @@ export default function Noticias() {
   };
 
 
-
-
-  const noticias = [
+  const noticiass = [
     {
       "id": 0,
-      "titulo": "noticia teste",
-      "texto": "texto da noticia"
+      "titulo": "tititi",
+      "texto": "tetete"
     },
-    {
+{
       "id": 1,
-      "titulo": "noticia teste 2",
-      "texto": "texto da noticia 2"
+      "titulo": "tititi",
+      "texto": "tetete"
+    },
+{
+      "id": 2,
+      "titulo": "tititi",
+      "texto": "tetete"
     },
   ]
+
 
   return (
 
@@ -95,12 +118,12 @@ export default function Noticias() {
 
       <CardContent>
         <ul className="flex gap-10 flex-wrap">
-          {noticias.map((item) => (
+          {noticiass.map((item) => (
             <li key={item.id}>
               <Dialog>
                 <DialogTrigger asChild>
                   <button
-                    onClick={() => setNoticia(item)}
+                    onClick={() => setNoticias(item)}
                   >
                     <Card className="relative w-60 h-40 overflow-hidden hover:shadow-black hover:shadow-xl/20 hover:-translate-y-1 duration-300 ease-in-out">
                       <div className="absolute inset-0 bg-[url(/hidrotube.png)] bg-cover bg-center brightness-55 z-0" />
@@ -115,7 +138,7 @@ export default function Noticias() {
                   </button>
                 </DialogTrigger>
 
-                <DialogContent className="bg-white">
+                <DialogContent className="bg-white min-w-250">
 
                   <DialogHeader>
 
@@ -130,12 +153,17 @@ export default function Noticias() {
 
                   {/* Blocos das noticias aqui */}
 
-                  <div>
-                    <form>
+                <div className="">
+                  <form className="flex" onSubmit={handleSubmit}>
+                    <div className="
+                      w-1/2
+                      px-5
+                      py-5">
+
                       <Label htmlFor="title" className="
                         text-2xl
-                        my-5">Titulo</Label>
-                      <Input id="title" name="title" type="text" defaultValue={item.titulo} className="
+                        mb-5">Titulo</Label>
+                      <Input id="title" defaultValue={item.titulo} name="title" type="text"  className="
                         min-h-15
                         max-h-50 !text-lg"/>
 
@@ -144,27 +172,40 @@ export default function Noticias() {
                         my-5">Texto</Label>
                       <Input id="text" name="text" type="text" defaultValue={item.texto} className="
                         min-h-15
-                        max-h-50 !text-lg"/>
+                        max-h-50 !text-lg "/>
+                    </div>
+
+                    <div className="
+                      border-l-2
+                      w-1/2
+                      px-5
+                      py-5
+                      ">
 
                       <Label htmlFor="image" className="
                         text-2xl
-                        my-5">Imagem</Label>
-                      <Input id="image" name="image" type="file" className="
+                        mb-5">Imagem</Label>
+                      <Input id="image" onChange={(e) => setFile(e.target.files[0])} name="image" type="file" className="
                         min-h-15
                         max-h-50 !text-lg"/>
 
                       <div className="
                         w-full
+                        h-1/2
                         flex
-                        justify-end">
+                        justify-end
+                        ">
                         <Button className="
-                          mt-10">Salvar</Button>
+                          mt-auto
+                          w-40">Salvar</Button>
                       </div>
+                    </div>
 
-                    </form>
 
-                  </div>
 
+                  </form>
+
+                </div>
                 </DialogContent>
               </Dialog>
             </li>
@@ -179,43 +220,65 @@ export default function Noticias() {
 
               </DialogTrigger>
               <DialogContent className="
-                bg-white">
-                <DialogTitle className="text-3xl">Adicionar uma nova noticia</DialogTitle>
+                bg-white min-w-250">
+                <DialogHeader className="mb-5">
 
-                <DialogDescription className="
-                  text-md">
-                  Escreva nos campos e salve para adicionar a noticia
-                </DialogDescription>
-                <div>
-                  <form onSubmit={handleSubmit}>
-                    <Label htmlFor="title" className="
-                      text-2xl
-                      my-5">Titulo</Label>
-                    <Input id="title" name="title" type="text"  className="
-                      min-h-15
-                      max-h-50 !text-lg"/>
+                  <DialogTitle className="text-3xl">Adicionar uma nova noticia</DialogTitle>
 
-                    <Label htmlFor="text" className="
-                      text-2xl
-                      my-5">Texto</Label>
-                    <Input id="text" name="text" type="text" className="
-                      min-h-15
-                      max-h-50 !text-lg"/>
+                  <DialogDescription className="
+                    text-md">
+                    Escreva nos campos e salve para adicionar a noticia
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="">
+                  <form className="flex" onSubmit={handleSubmit}>
+                    <div className="
+                      w-1/2
+                      px-5
+                      py-5">
 
-                    <Label htmlFor="image" className="
-                      text-2xl
-                      my-5">Imagem</Label>
-                    <Input id="image" onChange={(e) => setFile(e.target.files[0])} name="image" type="file" className="
-                      min-h-15
-                      max-h-50 !text-lg"/>
+                      <Label htmlFor="title" className="
+                        text-2xl
+                        mb-5">Titulo</Label>
+                      <Input id="title" name="title" type="text"  className="
+                        min-h-15
+                        max-h-50 !text-lg"/>
+
+                      <Label htmlFor="text" className="
+                        text-2xl
+                        my-5">Texto</Label>
+                      <Input id="text" name="text" type="text" className="
+                        min-h-15
+                        max-h-50 !text-lg "/>
+                    </div>
 
                     <div className="
-                      w-full
-                      flex
-                      justify-end">
-                      <Button className="
-                        mt-10">Salvar</Button>
+                      border-l-2
+                      w-1/2
+                      px-5
+                      py-5
+                      ">
+
+                      <Label htmlFor="image" className="
+                        text-2xl
+                        mb-5">Imagem</Label>
+                      <Input id="image" onChange={(e) => setFile(e.target.files[0])} name="image" type="file" className="
+                        min-h-15
+                        max-h-50 !text-lg"/>
+
+                      <div className="
+                        w-full
+                        h-1/2
+                        flex
+                        justify-end
+                        ">
+                        <Button className="
+                          mt-auto
+                          w-40">Salvar</Button>
+                      </div>
                     </div>
+
+
 
                   </form>
 
