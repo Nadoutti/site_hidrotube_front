@@ -29,6 +29,7 @@ export default function Noticias() {
 
   const [noticias, setNoticias] = useState([]);
   const [file, setFile] = useState(null);
+  const [coverFile, setCoverFile] = useState(null);
   const [form, setForm] = useState(
     {
     title: "",
@@ -59,6 +60,7 @@ export default function Noticias() {
     formData.append('title', form.title) // ここ、デタを送信する
     formData.append('text', form.text)
     formData.append('file', file)
+    formData.append('coverfile', coverFile)
 
     try {
       const response = api.post('/noticias/upload', formData)
@@ -78,6 +80,7 @@ export default function Noticias() {
     formData.append('title', form.title) // ここ、デタを送信する
     formData.append('text', form.text)
     formData.append('file', file)
+    formData.append('coverfile', coverFile)
 
     try {
       const response = api.post(`/noticias/${id}`, formData)
@@ -140,7 +143,7 @@ export default function Noticias() {
 
                 <DialogContent className="bg-white min-w-250">
 
-                  <DialogHeader>
+                  <DialogHeader className="mb-5">
 
                     <DialogTitle className="
                       text-3xl">Editar Noticia</DialogTitle>
@@ -184,17 +187,23 @@ export default function Noticias() {
 
                       <Label htmlFor="image" className="
                         text-2xl
-                        mb-5">Imagem</Label>
+                        mb-5">Imagem Principal</Label>
                       <Input id="image" onChange={(e) => setFile(e.target.files[0])} name="image" type="file" className="
+                        min-h-15
+                        max-h-50 !text-lg"/>
+
+                      <Label htmlFor="image" className="
+                        text-2xl
+                        my-5">Cover Image da Noticia</Label>
+                      <Input id="image" onChange={(e) => setCoverFile(e.target.files[0])} name="image" type="file" className="
                         min-h-15
                         max-h-50 !text-lg"/>
 
                       <div className="
                         w-full
-                        h-1/2
                         flex
                         justify-end
-                        ">
+                        pt-5">
                         <Button className="
                           mt-auto
                           w-40">Salvar</Button>
@@ -266,9 +275,16 @@ export default function Noticias() {
                         min-h-15
                         max-h-50 !text-lg"/>
 
+                      <Label htmlFor="image" className="
+                        text-2xl
+                        my-5">Cover Image da Noticia</Label>
+                      <Input id="image" onChange={(e) => setCoverFile(e.target.files[0])} name="image" type="file" className="
+                        min-h-15
+                        max-h-50 !text-lg"/>
+
                       <div className="
                         w-full
-                        h-1/2
+                        pt-5
                         flex
                         justify-end
                         ">

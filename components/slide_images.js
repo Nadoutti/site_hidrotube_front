@@ -26,30 +26,31 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-
-
-
 export default function OtherImages() {
 
-
-  const [fileData, setFileData] = useState(null)
+  const [fileData, setFileData] = useState(null);
+  const [selecionado, setSelecionado] = useState(null);
   const [images, setImages] = useState([]);
   const [imgOn, setImgOn] = useState(false);
   const [imgId, setImgId] = useState("");
+  const [ativo, setAtivo] = useState(null);
 
-  
+
 
 
   // Funcoes aqui
 
-  useEffect(() => {
-    api.get("/slides").then((response) => {
+useEffect(() => {
+  const fetchSlides = async () => {
+    try {
+      const response = await api.get("/slides")
       setImages(response.data)
-      console.log(response.data)
-      
-    })
-
-  }, []);
+    } catch (err) {
+      console.error("Erro ao buscar slides:", err)
+    }
+  }
+  fetchSlides()
+}, [])
 
   const handleFileChange = (e) => {
     setFileData(e.target.files[0])
@@ -57,7 +58,7 @@ export default function OtherImages() {
 
 
   const handleSubmit = (e) => {
-    
+
     e.preventDefault();
 
     const formData = new FormData();
@@ -73,38 +74,89 @@ export default function OtherImages() {
 
   };
 
+  const deleteImage = (id) => {
+
+    try {
+
+      api.delete(`/slides/${id}`)
+    }
+
+    catch (e) {
+      console.error(errror)
+    }
+
+  }
+
   const toggleImage = (id) => {
 
     try {
 
 
 
-      const response = api.put(`/slides/${id}/selecionar`, id)
+      api.put(`/slides/${id}`)
+      .then((response) => { 
+          console.log(response.data) 
+          console.log(id) })
+
+      setImages(prevImages =>
+        prevImages.map(img =>
+          img.id === id ? { ...img, used: !img.used } : img
+        )
+      )
+
 
       setImgId("")
 
-      window.location.reload();
-
 
     } catch (error) {
-      console.log(imgId.type)
-      console.log(imgId)
-      console.error(error)
+      console.log("errou")
 
     }
   };
 
-  
+
 
   return (
     <>
       <Card className="mt-20">
         <CardHeader>
-          <CardTitle>
-            <span className="text-xl">
+          <CardTitle className="
+            flex
+            justify-between">
+            <p className="text-xl">
               Todas Imagens
 
-            </span>
+            </p>
+            <div className="
+              flex
+              gap-5">
+
+
+              {/* <Button */} {/*   variant="destructive" */}
+              {/*   disabled={ativo !== true} */}
+              {/*   onClick={() => { */}
+              {/**/}
+              {/*     setAtivo(null) */}
+              {/*   }} */}
+              {/*   className=" */}
+              {/*   bg-red-500" */}
+              {/* > */}
+              {/*    Confirmar */}
+              {/* </Button> */}
+
+              <button
+                onClick={() => setAtivo(true)}
+                className={`
+                  mr-8
+                  rounded-lg px-4 py-2 border-2 duration-200 ease-in-out
+                  ${ativo === true
+                  ? "bg-red-500 text-white border-red-500" 
+                  : "bg-white text-black border-red-500"}
+                  `}
+              >
+                Apagar imagens
+              </button>
+            </div>
 
           </CardTitle>
 
@@ -119,26 +171,32 @@ export default function OtherImages() {
             flex-wrap">
             {images.map((image) => (
               <li key={`${image.id}`}>
-                    <button onClick={() => toggleImage(image.id)} className="
-                      rounded-lg
-                      hover:-translate-y-2 duration-200 ease-in-out hover:shadow-black hover:shadow-xl/20">
+                <button onClick={() => {
+                  if (ativo == true) {
+                    deleteImage(image.id)
+                  }
+                  toggleImage(image.id)
 
-                      {image.used ? 
-                        <>
+                }} className="
+                  rounded-lg
+                  hover:-translate-y-2 duration-200 ease-in-out hover:shadow-black hover:shadow-xl/20">
 
-                          <Image className="rounded-tl-lg rounded-tr-lg " src={`${image.img_url}`} width={250} height={100} alt="foto" />
-                          <h1 className="
-                            text-center font-bold pt-2 bg-blue-50 rounded-bl-lg rounded-br-lg ">Usada</h1>
-                        </>
+                  {image.used ? 
+                    <>
 
-                        :
+                      <Image className="rounded-tl-lg h-auto w-[250px] rounded-tr-lg " src={`${image.img_url}`} width={250} height={100} alt="foto" />
+                      <h1 className="
+                        text-center font-bold pt-2 bg-blue-50 rounded-bl-lg rounded-br-lg ">Usada</h1>
+                    </>
 
-                        <Image className="rounded-lg " src={`${image.img_url}`} width={250} height={100} alt="foto" />
+                    :
+
+                    <Image className="rounded-lg h-auto w-[250px] " src={`${image.img_url}`} width={250} height={0} alt="foto" />
 
 
-                      }
+                  }
 
-                    </button>
+                </button>
 
 
               </li>
