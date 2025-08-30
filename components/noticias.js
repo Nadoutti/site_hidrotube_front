@@ -40,32 +40,48 @@ export default function Noticias() {
 
   useEffect(() => {
     api.get("/noticias").then((response) => {
-      setNoticia(response.data)
+      setNoticias(response.data)
       console.log(response.data)
 
     })
 
   }, []);
 
+  const handleCoverChange = (e) => {
+    console.log(e.target.files[0])
+    setFile(e.target.files[0])
+  };
+
+  const handleFileChange = (e) => {
+    setCoverFile(e.target.files[0])
+  };
+
+
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.val})
+    setForm({ ...form, [e.target.name]: e.target.value})
   }
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
 
     e.preventDefault();
+    console.log("chegou")
+    console.log(file)
+    console.log(coverFile)
+
+
 
     const formData = new FormData();
     formData.append('title', form.title) // ここ、デタを送信する
     formData.append('text', form.text)
-    formData.append('file', file)
-    formData.append('coverfile', coverFile)
+    formData.append("files", file);
+    formData.append("files", coverFile);
 
     try {
-      const response = api.post('/noticias/upload', formData)
+      const response = await api.post('/noticias/upload', formData)
 
     } catch (error) {
+      console.error(error)
       console.log("これが悪い")
 
     }
@@ -79,8 +95,8 @@ export default function Noticias() {
     const formData = new FormData();
     formData.append('title', form.title) // ここ、デタを送信する
     formData.append('text', form.text)
-    formData.append('file', file)
-    formData.append('coverfile', coverFile)
+    formData.append("files", file);
+    formData.append("files", coverFile);
 
     try {
       const response = api.post(`/noticias/${id}`, formData)
@@ -99,12 +115,12 @@ export default function Noticias() {
       "titulo": "tititi",
       "texto": "tetete"
     },
-{
+    {
       "id": 1,
       "titulo": "tititi",
       "texto": "tetete"
     },
-{
+    {
       "id": 2,
       "titulo": "tititi",
       "texto": "tetete"
@@ -156,65 +172,65 @@ export default function Noticias() {
 
                   {/* Blocos das noticias aqui */}
 
-                <div className="">
-                  <form className="flex" onSubmit={handleSubmit}>
-                    <div className="
-                      w-1/2
-                      px-5
-                      py-5">
+                  <div className="">
+                    <form className="flex" onSubmit={handleEditSubmit}>
+                      <div className="
+                        w-1/2
+                        px-5
+                        py-5">
 
-                      <Label htmlFor="title" className="
-                        text-2xl
-                        mb-5">Titulo</Label>
-                      <Input id="title" defaultValue={item.titulo} name="title" type="text"  className="
-                        min-h-15
-                        max-h-50 !text-lg"/>
+                        <Label htmlFor="title" className="
+                          text-2xl
+                          mb-5">Titulo</Label>
+                        <Input id="title" defaultValue={item.titulo} name="title" type="text"  className="
+                          min-h-15
+                          max-h-50 !text-lg"/>
 
-                      <Label htmlFor="text" className="
-                        text-2xl
-                        my-5">Texto</Label>
-                      <Input id="text" name="text" type="text" defaultValue={item.texto} className="
-                        min-h-15
-                        max-h-50 !text-lg "/>
-                    </div>
-
-                    <div className="
-                      border-l-2
-                      w-1/2
-                      px-5
-                      py-5
-                      ">
-
-                      <Label htmlFor="image" className="
-                        text-2xl
-                        mb-5">Imagem Principal</Label>
-                      <Input id="image" onChange={(e) => setFile(e.target.files[0])} name="image" type="file" className="
-                        min-h-15
-                        max-h-50 !text-lg"/>
-
-                      <Label htmlFor="image" className="
-                        text-2xl
-                        my-5">Cover Image da Noticia</Label>
-                      <Input id="image" onChange={(e) => setCoverFile(e.target.files[0])} name="image" type="file" className="
-                        min-h-15
-                        max-h-50 !text-lg"/>
+                        <Label htmlFor="text" className="
+                          text-2xl
+                          my-5">Texto</Label>
+                        <Input id="text" name="text" type="text" defaultValue={item.texto} className="
+                          min-h-15
+                          max-h-50 !text-lg "/>
+                      </div>
 
                       <div className="
-                        w-full
-                        flex
-                        justify-end
-                        pt-5">
-                        <Button className="
-                          mt-auto
-                          w-40">Salvar</Button>
+                        border-l-2
+                        w-1/2
+                        px-5
+                        py-5
+                        ">
+
+                        <Label htmlFor="image" className="
+                          text-2xl
+                          mb-5">Imagem Principal</Label>
+                        <Input id="image" onChange={handleFileChange} multiple name="image" type="file" className="
+                          min-h-15
+                          max-h-50 !text-lg"/>
+
+                        <Label htmlFor="image" className="
+                          text-2xl
+                          my-5">Cover Image da Noticia</Label>
+                        <Input id="image" onChange={handleCoverChange} name="image" multiple type="file" className="
+                          min-h-15
+                          max-h-50 !text-lg"/>
+
+                        <div className="
+                          w-full
+                          flex
+                          justify-end
+                          pt-5">
+                          <Button className="
+                            mt-auto
+                            w-40">Salvar</Button>
+                        </div>
                       </div>
-                    </div>
 
 
 
-                  </form>
+                    </form>
 
-                </div>
+                  </div>
                 </DialogContent>
               </Dialog>
             </li>
@@ -271,14 +287,14 @@ export default function Noticias() {
                       <Label htmlFor="image" className="
                         text-2xl
                         mb-5">Imagem</Label>
-                      <Input id="image" onChange={(e) => setFile(e.target.files[0])} name="image" type="file" className="
+                      <Input id="image" onChange={handleFileChange} name="image" multiple type="file" className="
                         min-h-15
                         max-h-50 !text-lg"/>
 
                       <Label htmlFor="image" className="
                         text-2xl
                         my-5">Cover Image da Noticia</Label>
-                      <Input id="image" onChange={(e) => setCoverFile(e.target.files[0])} name="image" type="file" className="
+                      <Input id="image" onChange={handleCoverChange} name="image" multiple type="file" className="
                         min-h-15
                         max-h-50 !text-lg"/>
 
