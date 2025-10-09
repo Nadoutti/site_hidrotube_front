@@ -1,0 +1,226 @@
+import { notFound } from "next/navigation";
+import {venus} from "@/app/layout.js"
+import Navbar from "@/app/sections/navbar.js"
+import Footer from "@/app/sections/footer.js"
+import api from "@/utils/api.js"
+import Image from "next/image"
+
+export default function tubosCarbono() {
+
+  const sections = ['TUBOS A/C NBR 5580-L', 'TUBOS A/C NBR 5580-M', 'TUBOS A/C SCH A-106 E TUBOS A/C NBR 5590/SCH']
+
+  return (
+    <div>
+      <Navbar/>
+      <div className="relative w-full h-100 overflow-hidden  ">
+        {/* Imagem de fundo com filtro de brightness */}
+        <div className="absolute inset-0 bg-[url(/hidrotube.png)] bg-cover bg-center brightness-55 z-0"></div>
+
+
+
+        <div className="relative z-10">
+
+
+          <p className={ `text-center text-5xl pt-50 uppercase text-white font-bold ${venus.className}` }>Tubos de carbono</p>
+        </div>
+      </div>
+
+      <div className="
+        flex
+        my-25
+        ">
+        <div className="
+          w-1/2
+          flex
+          justify-center
+          ">
+          <Image width={600} height={600} src="/hidrotube.png" alt="tubo aco carbono"/>
+
+
+        </div>
+
+        <div className=" 
+          w-1/2
+          text-center px-40 ">
+
+          <h1 className={`${venus.className} text-3xl mb-8 text-[#142667]`}>
+            FABRICAÇÃO E 
+            NORMAS TÉCNICAS
+          </h1>
+
+          <p className="text-xl">
+            Os tubos de aço carbono são amplamente utilizados em sistemas industriais, comerciais e de construção civil devido à sua resistência mecânica, durabilidade e versatilidade.
+
+            Podem ser fabricados com costura (soldados) ou sem costura (laminados a quente ou estirados a frio), dependendo da aplicação e das exigências normativas.
+            A fabricação envolve processos como laminação, soldagem e galvanização, garantindo diferentes acabamentos e características de resistência à pressão, corrosão e temperatura. 
+
+            Esses tubos atendem às principais normas técnicas nacionais e internacionais, como NBR 5580, NBR 5590 e ASTM A-106,
+            assegurando padronização dimensional, confiabilidade e qualidade no desempenho.
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+      <div className="py-15  flex justify-center">
+        <div className="w-1/2 flex items-center px-30">
+          <h1 className={`${venus.className} text-center text-3xl text-[#142667]`}>SELECIONE A NORMA DESEJADA</h1>
+
+        </div>
+
+        <div className="w-1/2  flex flex-col items-center ">
+          {sections.map((sec) => (
+            <a
+              key={sec}
+              href={`#${sec}`}
+              className="
+                  hover:translate-x-5 
+                  duration-200
+                  ease-in-out
+                  text-xl font-bold capitalize bg-[#142667] my-3 w-3/4 text-[#FFFFFF] p-2 rounded-"
+
+            >
+              {sec}
+            </a>
+          ))}
+
+        </div>
+      </div>
+
+      <section id="TUBOS A/C NBR 5580-L">
+
+        <div className="py-15">
+
+          <div>
+            <h1 className={`${venus.className} text-3xl text-[#142667]`}>TUBOS A/C NBR 5580-L</h1>
+          </div>
+
+          <div className="flex">
+            <div className="flex flex-col w-1/2">
+
+
+              <h2 className={`${venus.className} text-2xl`}>Descricao</h2>
+
+              <p>
+                Tubos leves com costura, indicados para condução de fluidos de baixa pressão.
+
+                Fornecidos com acabamento Preto ou Galvanizado com comprimento de 6000 mm. A galvanização oferece maior resistência contra corrosão.
+
+                São utilizados em instalações prediais e industriais leves, para o transporte de ar comprimido, gases, água, vapor,
+                e outros fluídos não corrosivos, em condições normais de trabalho.
+              </p>
+
+              <Image width={500} height={500} src="/tubo.png" alt="imagem tubo de aço carbono"/>
+            </div>
+
+            <div>
+              tabela vem aqui
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </section>
+
+
+      <section id="TUBOS A/C NBR 5580-M">
+
+        <div className="py-15">
+
+          <div>
+            <h1 className={`${venus.className} text-3xl text-[#142667]`}>TUBOS A/C NBR 5580-M</h1>
+          </div>
+
+          <div className="flex">
+            <div className="flex flex-col w-1/2">
+
+
+              <h2 className={`${venus.className} text-2xl`}>Descricao</h2>
+
+              <p>
+                Tubos médios com costura, projetados para suportar maiores pressões que a classe leve, mantendo versatilidade e custo competitivo.
+
+                Fornecidos com acabamento Preto ou Galvanizado com comprimento de 6000 mm. A galvanização oferece maior resistência contra corrosão.
+
+                São utilizados em sistemas de pressão moderada, para o transporte de ar comprimido, gases, água, vapor, e outros fluídos não corrosivos, em condições normais de trabalho.
+              </p>
+
+              <Image width={500} height={500} src="/tubo.png" alt="imagem tubo de aço carbono"/>
+            </div>
+
+            <div>
+              tabela vem aqui
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section id="TUBOS A/C SCH A-106 E TUBOS A/C NBR 5590/SCH">
+
+        <div className="py-15">
+
+          <div>
+            <h1 className={`${venus.className} text-3xl text-[#142667]`}>TUBOS A/C SCH A-106 E TUBOS A/C NBR 5590/SCH</h1>
+          </div>
+
+          <div >
+            <div>
+              <div className="flex">
+                <div className="w-1/2">
+                  <h1>SCH A-106</h1>
+                  <p>
+
+                    Tubos sem costura fabricados de acordo com a norma ASTM A-106, garantindo alta performance em ambientes críticos.
+
+                    Fornecidos com acabamento Preto com comprimento de 6000 mm.
+
+                    São utilizados principalmente em indústrias petroquímicas, refinarias, caldeiras,
+                    trocadores de calor e linhas de vapor de alta pressão. Suportam altas pressões e temperaturas sem comprometer a segurança.</p>
+
+                </div>
+                <div className="w-1/2">
+                  <h1>NBR 5590 SCH</h1>
+                  <p>
+
+                    Tubos de maior resistência, fabricados conforme a norma NBR 5590, disponíveis em diferentes schedules (SCH), podendo ser com ou sem costura. 
+
+                    Fornecidos com acabamento Preto com comprimento de 6000 mm. 
+
+                    São utilizados para o transporte de vapor, óleo, gás, ar comprimido e condução de fluidos industriais. Ideal para condições de trabalho mais exigentes.</p>
+
+                </div>
+
+              </div>
+
+
+
+              <div>
+                <Image width={500} height={500} src="/hidrotube.png" alt="tubo carbono"/>
+
+            </div>
+
+            <div>
+              tabela vem aqui
+
+            </div>
+
+          </div>
+
+        </div>
+        </div>
+
+
+      </section>
+    </div>
+  )
+
+}

@@ -1,12 +1,15 @@
 import Image from 'next/image';
 
 export default function Navbar() {
+
+  const items = ['Inicio', 'Sobre', 'Catalogo', 'Notícias']
+
   return (
     <nav className="
-      bg-white
       w-full
       bg-linear-65 from-[#F5FBFF] to-[#DEEBFF] 
       border-gray-200 
+      fixed
       text-[#142667]
       z-50
       ">
@@ -27,38 +30,30 @@ export default function Navbar() {
           w-1/2
           justify-between
           gap-10
-          text-[20px]">
+          text-[20px]
+          text-gray-600
+          ">
+          
 
-          <li>
-            <a href="/">
 
-              Inicio 
+          {items.map((item) =>
+
+            <li className="hover:text-[#142667]">
+              <a key={item} href={`#${item}`}>
+
+                {item}
+              </a>
+            </li>
+
+          )}
+
+          <li className="hover:text-[#142667]">
+            <a href="/contato">
+
+              Contato 
             </a>
           </li>
 
-          <li>
-            <a href="sobre">
-              Sobre
-            </a>
-          </li>
-
-          <li>
-            <a href="catalogo">
-              Catalogo
-            </a>
-          </li>
-
-          <li>
-            <a href="noticias">
-              Noticias
-            </a>
-          </li>
-
-          <li>
-            <a href="contato">
-              Contato
-            </a>
-          </li>
         </ul>
       </div>
     </nav>

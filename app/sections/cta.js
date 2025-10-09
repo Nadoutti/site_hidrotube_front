@@ -17,7 +17,7 @@ export default function Cta() {
         w-2/3
         text-center
         ">
-        <h1 className={ `p-10 bg-linear-0  from-[#2D6BBD] to-[#4D83C9] rounded-lg text-[28px] ` }>DE UMA OLHADA NO NOSSO CATALOGO</h1>
+        <h1 className={ `p-10 bg-[#4D83C9] text-[28px] ` }>DE UMA OLHADA NO NOSSO CATALOGO</h1>
 
       </div>
 
@@ -29,7 +29,7 @@ export default function Cta() {
           hover:-translate-y-1
           duration-200
           ease-in-out
-          rounded-lg italic font-bold">CLIQUE AQUI</a>
+          italic font-bold">CLIQUE AQUI</a>
     </div>
   )
 }

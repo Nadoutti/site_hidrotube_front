@@ -7,7 +7,7 @@ import Footer from "@/app/sections/footer.js"
 import api from "@/utils/api.js"
 import Image from "next/image"
 
-export default function NoticiaPage({ params }) {
+export default function TubosPage({ params }) {
 
   const { noticiaId } = params;
   const [noticia, setNoticia] = useState(null);
@@ -30,7 +30,7 @@ export default function NoticiaPage({ params }) {
       <div className="
         ">
         {/* Sessao do titulo */}
-        <div className="relative w-full h-60 overflow-hidden  ">
+        <div className="relative w-full h-100 overflow-hidden  ">
           {/* Imagem de fundo com filtro de brightness */}
           <div className="absolute inset-0 bg-[url(/hidrotube.png)] bg-cover bg-center brightness-55 z-0"></div>
 
@@ -39,12 +39,12 @@ export default function NoticiaPage({ params }) {
           <div className="relative z-10">
             {noticia !== null ?
             
-            <p className={ `text-center text-5xl pt-20 uppercase text-white font-bold ${venus.className}` }>{ noticia.title }</p>
+            <p className={ `text-center text-5xl pt-50 uppercase text-white font-bold ${venus.className}` }>{ noticia.title }</p>
 
               :
 
 
-            <p className={ `text-center text-5xl pt-20 uppercase text-white font-bold ${venus.className}` }>Nao foi possivel carregar noticia</p>
+            <p className={ `text-center text-5xl pt-50 uppercase text-white font-bold ${venus.className}` }>Nao foi possivel carregar noticia</p>
             }
           </div>
         </div>

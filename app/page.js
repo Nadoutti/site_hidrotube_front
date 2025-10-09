@@ -26,11 +26,13 @@ export default function LandingPage() {
       "></Navbar>
  
       {/* Slideshow */}
-      <Slideshow/>
+      <section id="Inicio">
+        <Slideshow/>
+      </section>
 
 
       {/* Produtos */}
-      < Produtos/ >
+      {/* < Produtos/ > */}
       
 
       {/* Atuando em */}
@@ -45,7 +47,9 @@ export default function LandingPage() {
       <Porque/>
 
       {/* Sobre */}
-      <Sobre/>
+      <section id="Sobre">
+        <Sobre/>
+      </section>
 
       {/* Noticias */}
       <Noticias/>

@@ -16,7 +16,7 @@ export default function AtuandoEm() {
         ">
         <h1 className={ `
           text-3xl
-          text-transparent bg-clip-text bg-linear-90 from-[#F44C51]  to-[#B73034]
+          text-[#FFFFFF]
           ${venus.className}`}>Atuando em:</h1>
       </div>
       {/* Conteudo */}
@@ -108,7 +108,6 @@ export default function AtuandoEm() {
             bg-transparent
             border
             font-bold
-            rounded-[10px]
             duration-200
             ease-in-out
             text-blue-100

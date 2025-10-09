@@ -53,10 +53,11 @@ export default function Produtos() {
               <Card className="
                 w-80
                 h-100
+                rounded-none
                 hover:shadow-black hover:shadow-xl/20 hover:-translate-y-1
                 duration-300
                 ease-in-out
-                bg-linear-180 from-[#142667] to-[#193084]">
+               bg-linear-180 from-[#142667] to-[#193084]">
                 <CardHeader>
                   <CardTitle className="text-center pt-10  text-2xl text-[#FFFFFF]">Tubos</CardTitle>
                 </CardHeader>
