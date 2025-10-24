@@ -52,7 +52,9 @@ export default function LandingPage() {
       </section>
 
       {/* Noticias */}
-      <Noticias/>
+      <section id="Notícias">
+        <Noticias/>
+      </section>
 
       {/* Parceiros */}
       <Parceiros/>

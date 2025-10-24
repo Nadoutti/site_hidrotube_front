@@ -4,8 +4,23 @@ import Navbar from "@/app/sections/navbar.js"
 import Footer from "@/app/sections/footer.js"
 import api from "@/utils/api.js"
 import Image from "next/image"
+import TabelaTubosCarbono from "@/components/tabela_tubos_carbono.js"
 
 export default function tubosCarbono() {
+
+const rows = [
+  { diamNom: "1/4\"", diamExt: "13,50",x: "x", espParede: "2,00", pesoPreto: 3.45, pesoGalv: null },
+  { diamNom: "3/8\"", diamExt: "17,20",x: "x", espParede: "2,00", pesoPreto: 4.50, pesoGalv: 4.80 },
+  { diamNom: "1/2\"", diamExt: "21,30",x: "x", espParede: "2,25", pesoPreto: 6.46, pesoGalv: 6.86 },
+  { diamNom: "3/4\"", diamExt: "26,90",x: "x", espParede: "2,25", pesoPreto: 8.30, pesoGalv: 8.79 },
+  { diamNom: "1\"", diamExt: "33,70",x: "x", espParede: "2,65", pesoPreto: 12.29, pesoGalv: 12.81 },
+  { diamNom: "1.1/4\"", diamExt: "42,40",x: "x", espParede: "2,65", pesoPreto: 15.81, pesoGalv: 16.64 },
+  { diamNom: "1.1/2\"", diamExt: "48,30",x: "x", espParede: "3,00", pesoPreto: 20.36, pesoGalv: 21.33 },
+  { diamNom: "2\"", diamExt: "60,30",x: "x", espParede: "3,00", pesoPreto: 25.74, pesoGalv: 26.97 },
+  { diamNom: "2.1/2\"", diamExt: "76,10",x: "x", espParede: "3,35", pesoPreto: 36.45, pesoGalv: 38.04 },
+  { diamNom: "3\"", diamExt: "88,90",x: "x", espParede: "3,35", pesoPreto: 42.86, pesoGalv: 44.74 },
+  { diamNom: "4\"", diamExt: "114,30",x: "x", espParede: "3,75", pesoPreto: 61.98, pesoGalv: 64.47 },
+];
 
   const sections = ['TUBOS A/C NBR 5580-L', 'TUBOS A/C NBR 5580-M', 'TUBOS A/C SCH A-106 E TUBOS A/C NBR 5590/SCH']
 
@@ -93,30 +108,32 @@ export default function tubosCarbono() {
 
         <div className="py-15">
 
-          <div>
-            <h1 className={`${venus.className} text-3xl text-[#142667]`}>TUBOS A/C NBR 5580-L</h1>
+          <div className="w-full bg-[#142667] py-10 my-15">
+            <h1 className={`${venus.className} text-3xl px-20 text-[#FFFFFF]`}>TUBOS A/C NBR 5580-L</h1>
           </div>
 
-          <div className="flex">
-            <div className="flex flex-col w-1/2">
+          <div className="flex py-10">
+            <div className="flex flex-col w-1/2 px-20">
+
+              <p className="text-xl ">
+                Tubos leves com costura, indicados para condução de fluidos de baixa pressão. <br/> <br/>
 
 
-              <h2 className={`${venus.className} text-2xl`}>Descricao</h2>
 
-              <p>
-                Tubos leves com costura, indicados para condução de fluidos de baixa pressão.
-
-                Fornecidos com acabamento Preto ou Galvanizado com comprimento de 6000 mm. A galvanização oferece maior resistência contra corrosão.
+                Fornecidos com acabamento <span className="font-black">Preto ou Galvanizado</span> com <span className="font-black">comprimento de 6000 mm.</span> A galvanização oferece maior resistência contra corrosão.<br/><br/>
 
                 São utilizados em instalações prediais e industriais leves, para o transporte de ar comprimido, gases, água, vapor,
                 e outros fluídos não corrosivos, em condições normais de trabalho.
               </p>
 
-              <Image width={500} height={500} src="/tubo.png" alt="imagem tubo de aço carbono"/>
+              <div className="h-100 overflow-hidden">
+
+                <Image className="my-10"  width={700} height={500} src="/tubo_ac_quatro.png" alt="imagem tubo de aço carbono"/>
+              </div>
             </div>
 
-            <div>
-              tabela vem aqui
+            <div className="w-1/2 pt-15 pr-20">
+              <TabelaTubosCarbono className=""/>
 
             </div>
 
@@ -209,7 +226,7 @@ export default function tubosCarbono() {
             </div>
 
             <div>
-              tabela vem aqui
+                tabela aq
 
             </div>
 
