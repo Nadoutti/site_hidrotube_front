@@ -9,7 +9,7 @@ export default function AtuandoEm() {
     <div className="
       lg:py-20
       py-10
-      px-10
+      px-20
       bg-linear-180 from-[#142667] to-[#193084]">
       {/* Div para o titulo */}
       <div className="

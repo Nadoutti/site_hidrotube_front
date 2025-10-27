@@ -6,7 +6,7 @@ export default function Porque() {
     <div className="
       lg:py-20
       py-10
-      px-10
+      px-20
       bg-linear-360 from-[#F5FBFF] to-[#DEEBFF]">
 
       <div className="
@@ -24,7 +24,6 @@ export default function Porque() {
         my-10
         gap-5
         justify-around
-        mx-20
         text-[#FFFFFF]
         text-center
         text-[28px]
@@ -33,7 +32,6 @@ export default function Porque() {
         font-bold">
         <div className="
           w-80
-          rounded-[15px]
           h-120
           flex
           flex-col
@@ -51,7 +49,6 @@ export default function Porque() {
         </div>
         <div className="
           w-80
-          rounded-[15px]
           flex
           flex-col
           items-center
@@ -71,7 +68,6 @@ export default function Porque() {
 
         <div className="
           w-80
-          rounded-[15px]
           flex
           flex-col
           items-center

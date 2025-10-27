@@ -15,17 +15,17 @@ function formatNumber(n) {
   return Number(n).toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-export default function TabelaTubos({ dataRows = [], cols = [] }) {
+export default function TabelaTubos({ dataRows = [], cols = [], title = "" }) {
   return (
     <Card className="rounded-none">
       <CardContent>
         <div className="flex flex-col justify-between mb-4">
-          <h3 className="text-2xl font-medium">Tabela de Tubos</h3>
+          <h3 className="text-2xl font-medium">{title}</h3>
           <p className="text-sm text-muted-foreground">Peso teórico (kg/6m)</p>
         </div>
 
         <div className="w-full overflow-x-auto">
-          <Table className="min-w-[720px] table-fixed">
+          <Table className="">
             <TableHeader>
               <TableRow>
                 {cols.map((colName, idx) => (

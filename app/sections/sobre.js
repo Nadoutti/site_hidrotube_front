@@ -6,7 +6,7 @@ export default function Sobre() {
   return (
     <div className="
       bg-linear-180 from-[#142667] to-[#193084]
-      px-10
+      px-20
       py-20">
 
       <div>
@@ -24,7 +24,6 @@ export default function Sobre() {
         <div className="
           w-2/3">
           <Image className="
-            rounded-lg
             " 
           src="/hidrotube.png"
           alt="hidrotube"

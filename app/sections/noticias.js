@@ -54,25 +54,14 @@ export default function Noticias() {
   return(
     <div className="
       bg-linear-0 from-[#F5FBFF] to-[#DEEBFF] 
+      px-20
       ">
       <div className="
         flex
-        py-20
-        items-center
-        justify-between">
-        <h1 className={`text-3xl   text-[#142667]  ml-10 ${venus.className}` }>Utimas Noticias</h1>
-        <a href="#" className="
-          mr-10
-          bg-linear-0 from-[#2D6BBD] to-[#3F79C7] 
-          hover:bg-linear-0 from-[#0055C5] to-[#478AE3]
-          p-4
-          rounded-md
-          text-[#FFFFFF]
-          font-bold
-          hover:-translate-y-1
-          duration-300
-          ease-in-out
-          ">VER TUDO</a>
+        flex-col
+        py-20">
+        <h1 className={`text-3xl   text-[#142667] ${venus.className}` }>Utimas Noticias</h1>
+        <div className="h-1 mt-2 w-2/10 bg-red-500"></div>
       </div>
       <Carousel className="
         ml-0
@@ -82,7 +71,7 @@ export default function Noticias() {
         opts={{
           loop: true,
         }}>
-        <CarouselContent className={`${calibri_bold.className} -mr-15 h-90 ml-5 mt-5 `}>
+        <CarouselContent className={`${calibri_bold.className} -mr-15 h-90 mt-5 `}>
           {noticias.map((noticia) => (
             <Link key={noticia.id} href={`/noticias/${noticia.id}`}>
               <CarouselItem className="
