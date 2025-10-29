@@ -64,6 +64,22 @@ export default function TubosInox() {
         {/* Div da parte da descricao principal */}
         <div  >
 
+          {/* Lado azul */}
+
+          <div>
+
+
+          </div>
+
+
+          {/* Lado branco */}
+          <div>
+
+
+          </div>
+
+
+
         </div>
         
       </div>
