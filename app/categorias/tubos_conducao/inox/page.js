@@ -1,6 +1,7 @@
 import Navbar from "@/app/sections/navbar"
 import { venus } from "@/app/layout"
 import Image from "next/image"
+import styles from '@/components/custom/inox_description.css'
 
 
 export default function TubosInox() {
@@ -57,23 +58,89 @@ export default function TubosInox() {
 
       <div className="my-25" >
         {/* Div do titulo */}
-        <div> 
+        <div className="mb-5"> 
           <h1 className={`${venus.className} text-3xl text-center text-[#142667]`}>LIGAS DE AÇO INOX</h1>
         </div>
 
         {/* Div da parte da descricao principal */}
-        <div  >
+        <div className="flex">
 
           {/* Lado azul */}
 
-          <div>
+          <div className={`pl-40 pr-30 bg-[#142667] text-xl text-[#FFFFFF] py-15 w-1/2 ${styles.bigger_div}`}>
+
+            <div className="flex my-10 gap-20">
+              <div className="">
+                <div className="text-center my-3">
+                  <p >Composição aproximada</p>
+                  <div className=" w-full h-1 bg-red-500"></div>
+
+                </div>
+                <div className="text-center">
+                  <p>18% de Cromo <br/>
+                    8% de Níquel</p>
+
+                </div>
+
+              </div>
+              <div>
+                <h1 className={`${venus.className} text-7xl`}>1304</h1>
+
+              </div>
+
+
+            </div>
+
+            <div className=" text-justify">
+              <p>O Aço Inox 304 possui excelente resistência à
+                corrosão em ambientes moderados, sendo
+                amplamente utilizado em aplicações gerais. É uma
+                escolha ideal para ambientes industriais que não
+                apresentam alta exposição a agentes corrosivos.</p>
+
+            </div>
 
 
           </div>
 
 
           {/* Lado branco */}
-          <div>
+          <div className=" pr-40 pl-30 text-xl border-[#142667] border-4 w-1/2 py-15">
+
+            <div className=" text-justify">
+              <p>O Aço Inox 316 é uma versão superior do aço inoxidável,
+                com a adição de molibdênio à sua composição. O
+                molibdênio confere uma resistência extra, especialmente
+                contra a corrosão por cloretos, como a água salgada,
+                tornando-o ideal para ambientes agressivos.</p>
+
+            </div>
+
+            <div className="flex my-15 gap-20">
+
+              <div>
+                <h1 className={`${venus.className} text-7xl`}>1316</h1>
+
+              </div>
+              <div className="">
+
+                <div className="text-center my-3">
+                  <p >Composição aproximada</p>
+                  <div className=" w-full h-1 bg-red-500"></div>
+
+                </div>
+                <div className=" text-center">
+                  <p>16% de Cromo <br/>
+                    10% de Níquel<br/>
+                    2% de Molibdênio</p>
+
+                </div>
+
+              </div>
+
+
+            </div>
+
 
 
           </div>
@@ -81,7 +148,7 @@ export default function TubosInox() {
 
 
         </div>
-        
+
       </div>
 
 
