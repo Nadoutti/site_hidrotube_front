@@ -283,7 +283,7 @@ export default function tubosCarbono() {
                   hover:translate-x-5 
                   duration-200
                   ease-in-out
-                  text-xl font-bold capitalize bg-[#142667] my-3 w-3/4 text-[#FFFFFF] p-2 rounded-"
+                  text-2xl font-bold capitalize bg-[#142667] my-3 w-3/4 text-[#FFFFFF] p-2 rounded-"
 
             >
               {sec}
@@ -381,10 +381,10 @@ export default function tubosCarbono() {
           </div>
           <div className="flex flex-col w-full">
 
-            <div className="flex">
-              <div className="w-1/2 pl-20 pr-10">
+            <div className="flex my-15">
+              <div className=" border-r-2 w-1/2 pl-20 pr-10">
 
-                <h1 className="text-2xl mb-5">SCH A-106</h1>
+                <h1 className="text-3xl font-black mb-5">SCH A-106</h1>
                 <p className="text-xl">Tubos sem costura fabricados de acordo com a norma ASTM
                   A-106, garantindo alta performance em ambientes críticos.<br/><br/>
 
@@ -399,7 +399,7 @@ export default function tubosCarbono() {
 
               <div className="w-1/2 pl-10 pr-20">
 
-                <h1 className="text-2xl mb-5">NBR 5590 SCH</h1>
+                <h1 className="text-3xl mb-5">NBR 5590 SCH</h1>
                 <p className="text-xl">Tubos de maior resistência, fabricados conforme a norma NBR
                   5590, disponíveis em diferentes schedules (SCH), podendo ser
                   com ou sem costura.<br/><br/>
