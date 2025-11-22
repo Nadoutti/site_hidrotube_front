@@ -217,14 +217,14 @@ export default function tubosCarbono() {
       <Navbar/>
       <div className="relative w-full h-100 overflow-hidden  ">
         {/* Imagem de fundo com filtro de brightness */}
-        <div className="absolute inset-0 bg-[url(/hidrotube.png)] bg-cover bg-center brightness-55 z-0"></div>
+        <div className="absolute inset-0 bg-[url(/tubo_ac_1.jpg)] bg-cover bg-center brightness-55 z-0"></div>
 
 
 
         <div className="relative z-10">
 
 
-          <p className={ `text-center text-5xl pt-50 uppercase text-white font-bold ${venus.className}` }>Tubos de carbono</p>
+          <p className={ `text-center text-5xl pt-50 uppercase text-white font-bold ${venus.className}` }>TUBOS DE CONDUÇÃO EM AÇO CARBONO</p>
         </div>
       </div>
 
@@ -234,10 +234,13 @@ export default function tubosCarbono() {
         ">
         <div className="
           w-1/2
+          ml-40
+          relative
+          overflow-hidden
           flex
           justify-center
           ">
-          <Image width={600} height={600} src="/hidrotube.png" alt="tubo aco carbono"/>
+          <Image fill src="/tubo_ac_2.jpg" alt="tubo aco carbono"/>
 
 
         </div>
@@ -245,17 +248,20 @@ export default function tubosCarbono() {
         <div className=" 
           w-1/2
           text-center px-40 ">
+          <div className="flex justify-center mb-8 border-b-3 border-red-500">
+            <h1 className={`${venus.className} text-3xl mb-8 text-[#142667]`}>
+              FABRICAÇÃO E <br/> 
+              NORMAS TÉCNICAS
+            </h1>
 
-          <h1 className={`${venus.className} text-3xl mb-8 text-[#142667]`}>
-            FABRICAÇÃO E 
-            NORMAS TÉCNICAS
-          </h1>
+          </div>
 
-          <p className="text-xl">
-            Os tubos de aço carbono são amplamente utilizados em sistemas industriais, comerciais e de construção civil devido à sua resistência mecânica, durabilidade e versatilidade.
+
+          <p className="text-justify text-xl">
+            Os tubos de aço carbono são amplamente utilizados em sistemas industriais, comerciais e de construção civil devido à sua resistência mecânica, durabilidade e versatilidade.<br/><br/>
 
             Podem ser fabricados com costura (soldados) ou sem costura (laminados a quente ou estirados a frio), dependendo da aplicação e das exigências normativas.
-            A fabricação envolve processos como laminação, soldagem e galvanização, garantindo diferentes acabamentos e características de resistência à pressão, corrosão e temperatura. 
+            A fabricação envolve processos como laminação, soldagem e galvanização, garantindo diferentes acabamentos e características de resistência à pressão, corrosão e temperatura. <br/><br/>
 
             Esses tubos atendem às principais normas técnicas nacionais e internacionais, como NBR 5580, NBR 5590 e ASTM A-106,
             assegurando padronização dimensional, confiabilidade e qualidade no desempenho.
@@ -317,11 +323,11 @@ export default function tubosCarbono() {
 
               <div className="h-100 overflow-hidden">
 
-                <Image className="my-10"  width={700} height={500} src="/tubo_ac_quatro.png" alt="imagem tubo de aço carbono"/>
+                <Image className="my-10"  width={700} height={500} src="/tubo_ac_3_2.png" alt="imagem tubo de aço carbono"/>
               </div>
             </div>
 
-            <div className="w-1/2 pt-15 pr-20">
+            <div className="w-1/2  pr-20">
               <TabelaTubosCarbono dataRows={rows_nbr_l} title="NBR L" cols={cols_nbr_l} className=""/>
 
             </div>
@@ -362,7 +368,7 @@ export default function tubosCarbono() {
               </div>
             </div>
 
-            <div className="w-1/2 pt-15 pr-20">
+            <div className="w-1/2  pr-20">
               <TabelaTubosCarbono dataRows={rows_nbr_m} title="NBR M" cols={cols_nbr_l} className=""/>
 
             </div>

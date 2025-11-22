@@ -88,7 +88,7 @@ const rows_tbl_5 = [
 
       <div className="relative w-full h-100 overflow-hidden  ">
         {/* Imagem de fundo com filtro de brightness */}
-        <div className="absolute inset-0 bg-[url(/hidrotube.png)] bg-cover bg-center brightness-55 z-0"></div>
+        <div className="absolute inset-0 bg-[url(/inox_ia_3.png)] bg-cover bg-center brightness-55 z-0"></div>
 
 
 
@@ -101,15 +101,37 @@ const rows_tbl_5 = [
 
       {/* Daqui pra frente e codigo customizado da pagina */}
 
-      <div className="px-20 my-15 w-full my-25 flex ">
-        <div className="w-1/2 flex items-end">
-          <Image src="/tubos_inox_1.png" width={700} height={500} alt="Imagem tubos Inox"/>
+      <div className="
+        flex
+        my-25
+        ">
+        <div className="
+          w-1/2
+          ml-40
+          relative
+          overflow-hidden
+          flex
+          justify-center
+          ">
+          <Image fill src="/inox_ia_3.png" alt="tubo aco inox"/>
+
 
         </div>
 
-        <div className="w-1/2 px-10">
-          <h1 className={`${venus.className} text-center text-3xl mb-8 text-[#142667]`}>FABRICAÇÃO E NORMAS TÉCNICAS</h1>
-          <p className="text-xl ">Os tubos de aço inox são amplamente utilizados em aplicações
+        <div className=" 
+          w-1/2
+          text-center px-40 ">
+          <div className="flex justify-center mb-8 border-b-3 border-red-500">
+            <h1 className={`${venus.className} text-3xl mb-8 text-[#142667]`}>
+              FABRICAÇÃO E <br/> 
+              NORMAS TÉCNICAS
+            </h1>
+
+          </div>
+
+
+          <p className="text-justify text-xl">
+            Os tubos de aço inox são amplamente utilizados em aplicações
             industriais, químicas, alimentícias e de processos que exigem alta
             resistência à corrosão, durabilidade e excelente acabamento superficial.<br/><br/>
 
@@ -117,17 +139,19 @@ const rows_tbl_5 = [
             (laminados ou trefilados a frio), conforme a necessidade do projeto e as
             condições de operação.<br/><br/>
 
-            Os tubos de aço inox estão disponíveis em dois padrões principais:<br/><br/>
-
-            <span className="font-black">Padrão Schedule</span> — utilizado em aplicações industriais que requerem
+            Os tubos de aço inox estão disponíveis em dois padrões principais:
+            Padrão Schedule — utilizado em aplicações industriais que requerem
             resistência à pressão, com espessuras definidas pela série SCH (5, 10,
             40, etc.).<br/><br/>
 
-            <span className="font-black">Padrão OD (Outside Diameter)</span> — adotado em sistemas que exigem
+
+            Padrão OD (Outside Diameter) — adotado em sistemas que exigem
             precisão dimensional e acabamento estético, como indústrias
-            alimentícias, farmacêuticas e de processos sanitários.</p>
+            alimentícias, farmacêuticas e de processos sanitários
+          </p>
 
         </div>
+
 
       </div>
 
@@ -271,7 +295,7 @@ const rows_tbl_5 = [
                 pressão, oferecendo excelente resistência à corrosão e
                 durabilidade.<br/>
                 Disponíveis em <span className="font-black">aço inox 304 ou 316</span>, podem ser <span className="font-black">com
-                costura ou sem costura</span>, com <span className="font-black"></span>comprimento de 6000 mm.
+                  costura ou sem costura</span>, com <span className="font-black"></span>comprimento de 6000 mm.
                 As espessuras seguem as <span className="font-black">séries SCH</span> (5, 10, 40, etc.),
                 conforme a necessidade do projeto.<br/>
                 São amplamente utilizados em sistemas industriais para
@@ -312,7 +336,7 @@ const rows_tbl_5 = [
                 ideais para aplicações que exigem higiene, resistência à
                 corrosão e estética aprimorada.<br/><br/>
                 Fabricados em <span className="font-black">aço inox 304 ou 316</span>, podem ser <span className="font-black">com
-                costura ou sem costura</span>, com <span className="font-black">diâmetro externo (OD)</span> de
+                  costura ou sem costura</span>, com <span className="font-black">diâmetro externo (OD)</span> de
                 acordo com a norma específica para tubos sanitários e
                 <span className="font-black">comprimento de 6000 mm.</span><br/><br/>
                 São amplamente utilizados em indústrias alimentícias,
